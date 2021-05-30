@@ -1,18 +1,24 @@
 const express = require('express');
 const mailchimp = require('@mailchimp/mailchimp_marketing/')
-
 const app = express();
+
+require('dotenv').config();
 
 app.listen(process.env.PORT || 3000, () => console.log("server is initialised"));
 
 app.use(express.static(__dirname));
+
+
 app.get("/", function (req, res) {
 
     res.sendFile(__dirname + "/signup.html");
 })
+
+const api = process.env.API_KEY;
+
 app.use(express.urlencoded({ extended: true }));
 mailchimp.setConfig({
-    apiKey: "bc0648e82539d33b0537f715901f7b5d-us6",
+    apiKey: api,
     server: "us6",
 })
 
