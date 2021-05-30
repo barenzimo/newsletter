@@ -46,5 +46,3 @@ app.post("/", function (req, res) {
 })
 
 
-// api keys=bc0648e82539d33b0537f715901f7b5d-us6
-// list id= 28bfbfbfd1
